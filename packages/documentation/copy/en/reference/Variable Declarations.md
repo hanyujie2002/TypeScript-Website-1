@@ -60,15 +60,12 @@ Even if `g` is called once `f` is done running, it will be able to access and mo
 function f() {
   var a = 1;
 
-  a = 2;
-  var b = g();
-  a = 3;
-
-  return b;
-
   function g() {
+    a += 1;
     return a;
   }
+
+  return g;
 }
 
 f(); // returns '2'
